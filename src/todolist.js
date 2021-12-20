@@ -19,6 +19,9 @@ export default function TodoList() {
     const removeTodo = (list, position) => {
         projects[list].splice(position, 1);
     };
+    const removeList = (list) => {
+        delete projects[list];
+    }
     const list = () => projects;
     const storeList = () => {
         localStorage.setItem('todoList', JSON.stringify(projects));
@@ -31,6 +34,7 @@ export default function TodoList() {
         addTodo,
         removeTodo,
         addList,
+        removeList,
         list,
         storeList,
         loadList

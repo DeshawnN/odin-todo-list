@@ -23,6 +23,9 @@ h1, h2 { text-align: center; }
 
 .todolist button {
     padding: 8px 24px;
+}
+
+[data-add-todo] {
     align-self: center;
 }
 
@@ -81,4 +84,8 @@ h1, h2 { text-align: center; }
 
 .new-list-input > * {
     flex: 1;
+}
+
+[data-delete-list] {
+    align-self: flex-end;
 }

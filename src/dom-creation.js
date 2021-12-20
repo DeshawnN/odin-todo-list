@@ -4,13 +4,24 @@ export default class DOMCreate {
     static TodoList(todoList, listName) {
         const list = document.createElement('div');
         list.classList.add('todolist');
+
+        const listDeleteButton = document.createElement('button');
+        listDeleteButton.textContent = "X";
+        listDeleteButton.setAttribute('data-delete-list', '');
+        listDeleteButton.addEventListener('click', ()=> {
+            todoList.removeList(listName);
+            todoList.storeList();
+            Renderer.todos(todoList);
+        })
+        list.appendChild(listDeleteButton);
+
         const heading = document.createElement('h2');
         heading.textContent = listName;
-    
         list.appendChild(heading);
 
         const addTodoButton = document.createElement("button");
         addTodoButton.textContent = "Add";
+        addTodoButton.setAttribute('data-add-todo', '');
         addTodoButton.addEventListener('click', () => {
             const inputArea = document.querySelector('.input-area');
             const title = inputArea.querySelector('[data-title]');

@@ -22,9 +22,9 @@ export default class DOMCreate {
 
             const todo = new Todo(
                 title.value, 
-                description.value || "None", 
-                new Date(dueDate.value).toDateString() || new Date(Date.now()).toDateString(), 
-                priority.value || "low"
+                description.value, 
+                dueDate.value, 
+                priority.value
             );
             todoList.addTodo(todo, listName);
             
@@ -32,6 +32,8 @@ export default class DOMCreate {
             description.value = '';
             dueDate.value = '';
             priority.value = 'low';
+
+            todoList.storeList();
             Renderer.todos(todoList);
         });
         list.appendChild(addTodoButton);
@@ -72,6 +74,7 @@ export default class DOMCreate {
             event.stopPropagation();
             const index = todoList.list()[list].indexOf(todoContent);
             todoList.removeTodo(list, index);
+            todoList.storeList();
             Renderer.todos(todoList);
         });
         drillDown.appendChild(deleteButton);

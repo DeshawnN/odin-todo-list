@@ -1,7 +1,7 @@
 import Todo from './todos';
 
 export default function TodoList() {
-    const projects = { 
+    let projects = { 
         default: [
             new Todo('Finish the Todo Application', 
             "Finalize the Todo Web App",
@@ -20,11 +20,19 @@ export default function TodoList() {
         projects[list].splice(position, 1);
     };
     const list = () => projects;
+    const storeList = () => {
+        localStorage.setItem('todoList', JSON.stringify(projects));
+    }
+    const loadList = () => {
+        projects = JSON.parse(localStorage.getItem('todoList'));
+    }
 
     return {
         addTodo,
         removeTodo,
         addList,
         list,
+        storeList,
+        loadList
     }
 }

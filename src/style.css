@@ -2,3 +2,83 @@ body {
     background-color: black;
     color: white;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1, h2 { text-align: center; }
+
+.todolist {
+    background-color: gray;
+    border: 2px solid white;
+    border-radius: 6px;
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+}
+
+.todolist button {
+    padding: 8px 24px;
+    align-self: center;
+}
+
+.todolist, .drilldown {
+    display: flex;
+    flex-direction: column;
+}
+
+.drilldown button {
+    align-self: flex-end;
+}
+
+.todo {
+    padding: 8px 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid white;
+    border-radius: 4px;
+    margin: 6px 25px;
+    color: black;
+
+}
+
+.todo > *, .drilldown > * {
+    padding: 8px 0;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.input-area {
+    display: flex;
+    flex-wrap: wrap;
+    width: 375px;
+    margin: 0 auto;
+}
+
+.input-area label {
+    padding: 5px
+}
+
+[data-new-list] {
+    width: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+.new-list-input {
+    padding: 15px;
+    display: flex;
+    margin: 0 auto;
+    width: 375px;
+    gap: 10px;
+}
+
+.new-list-input > * {
+    flex: 1;
+}
